@@ -16,7 +16,7 @@
  *       ICD_VPP -> :  1 MCLRn         PGD 28 : <> RB7         ICD_PGD
  *   SW_EN_a RA0 <> :  2 AN0           PGC 27 : <> RB6 LED_REC/ICD_PGC
  *   SW_EN_b RA1 <> :  3 AN1               26 : <> RB5 LED_IN6 (tape)
- *   SW_EN_C RA2 <> :  4 AN2               25 : <> RB4 LED_IN5 (tuner)
+ *   SW_EN_c RA2 <> :  4 AN2               25 : <> RB4 LED_IN5 (tuner)
  *  SW7_RECn RA3 <> :  5 AN3           PGM 24 : <> RB3 LED_IN4 (a.v.)
  * IR_IN_RC5 RA4 <> :  6 T0CKI             23 : <> RB2 LED_IN3 (cd)
  *  DEBUG_IO RA5 <> :  7 AN4               22 : <> RB1 LED_IN2 (video)
