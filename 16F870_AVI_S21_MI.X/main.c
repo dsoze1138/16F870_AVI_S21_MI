@@ -51,8 +51,8 @@
  * Application specific defines
  */
 #define LED_REC(x) PORTBbits.RB6=x
-#define LEC_REC_ON  (1)
-#define LEC_REC_OFF (0)
+#define LED_REC_ON  (1)
+#define LED_REC_OFF (0)
 /*
  * Interrupt vector handler
  */
@@ -150,9 +150,9 @@ void main(void)
          * 
          * This code will be used later to indicate a critical fault in the application .
          */
-        LED_REC(LEC_REC_ON);
+        LED_REC(LED_REC_ON);
         __delay_ms(250);
-        LED_REC(LEC_REC_OFF);
+        LED_REC(LED_REC_OFF);
         __delay_ms(250);
     }
 }
