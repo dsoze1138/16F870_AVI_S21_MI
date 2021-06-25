@@ -141,12 +141,11 @@ void main(void)
     {
         PollSwitches();
         /*
-         * Initial debug code to check if
-         * we have the project and tool 
-         * working together.
+         * Initial debug code to check that we have 
+         * the project and tools working together.
          * 
          * The expected behavior is the (mute) light should be on.
-         * The (record) should flash 2 times per second.
+         * The (record) light should flash 2 times per second.
          * 
          * This code will be used later to indicate a critical fault in the application .
          */
