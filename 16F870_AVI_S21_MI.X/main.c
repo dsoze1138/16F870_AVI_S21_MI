@@ -88,6 +88,27 @@ void PIC_Init(void)
     PORTB = 0;
     PORTC = 0;
 }
+/*
+ * Function: PollSwitches
+ * 
+ * Description:
+ * There are seven push button switches. When one of six is pressed 
+ * a code is asserted on bits 0-2 of PORTA. The seventh switch is 
+ * connected to bit 3 of PORTA.
+ * 
+ * Sample the hardware switches and return which one is pressed.
+ * 
+ * The logic of this implementation causes the "lower numbered" 
+ * switches to have a higher priority. This means that when more 
+ * than one switch is pressed a lower number switch assertion is
+ * returned. For example if SW_2 and SW_3 are both pressed then 
+ * SW_1 will be the state returned.
+ * 
+ * This is less than ideal but this is the way the hardware works.
+ * 
+ * This amplifier was designed 20 years ago in the U.K. so I expect 
+ * a few more of these "Richards" to float up.
+ */
 typedef enum {SW_none, SW_1, SW_2, SW_3, SW_4, SW_5, SW_6, SW_REC} SelectSwitch_t;
 SelectSwitch_t PollSwitches(void)
 {
