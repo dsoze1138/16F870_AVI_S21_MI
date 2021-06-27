@@ -239,16 +239,17 @@ void main(void)
             if (SW_Stable == SW_REC)
             {
                 LED_REC_TOGGLE();
-                if(PORTBbits.RB6)
-                {
-                    PORTC &= 0b11100000;
-                    PORTC |= PORTB & 0b11100000;
-                }
-                else
-                {
-                    PORTC &= 0b11100000;
-                }
             }
+            
+            if(PORTBbits.RB6)
+            {
+                PORTC ^= ((PORTC ^ PORTB) & 0b00011111);
+            }
+            else
+            {
+                PORTC &= 0b11100000;
+            }
+
             SW_Changed = 0;
         }
         /*
