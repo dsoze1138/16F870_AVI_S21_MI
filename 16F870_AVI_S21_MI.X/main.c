@@ -38,13 +38,6 @@
 #pragma config LVP = OFF        // Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit (RB3 is digital I/O, HV on MCLR must be used for programming)
 #pragma config CPD = OFF        // Data EEPROM Memory Code Protection bit (Data EEPROM code protection off)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
-#if defined(__16F870)
-#pragma config WRT = ALL        // FLASH Program Memory Write Enable (Unprotected program memory may be written to by EECON control)
-#elif defined(__16F876A)
-#pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
-#else
-#error  Does not build for the slected targget controller
-#endif
 
 /* Include definitions for device specific special function registers */
 #include <xc.h>
@@ -88,9 +81,6 @@ void PIC_Init(void)
     
     /* Make all GPIOs digital I/O */
     ADCON1 = 0x06;
-#if defined(__16F876A)
-    CMCON  = 0x07;
-#endif
     
     PORTA = 0;
     PORTB = 0;
