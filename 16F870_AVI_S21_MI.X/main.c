@@ -29,6 +29,49 @@
  *  LED_REC4 RC3 <> : 14                   15 : <> RC4 LED_REC5
  *                  +-------------------------+
  *                            DIP-28 
+ * 
+ *  This is how the user interactions is implemented:
+ * 
+ *      There are seven normally open push buttons that are
+ *      used to select one of six audio sources (disc) (video) 
+ *      (cd) (a.v.) (tuner) (tape), for the amplifier and one 
+ *      of five (disc) (video) (cd) (a.v.) (tuner) audio sources 
+ *      for the tape recorder.
+ * 
+ *      At power start all inputs sources are off and the (mute) 
+ *      is enabled.Pressing a source select button, (disc) (video) 
+ *      (cd) (a.v.) (tuner) (tape) will select that source as the 
+ *      amplifier input. Once an amplifier source is selected 
+ *      another press of that source select button will toggle the 
+ *      (mute) function.
+ * 
+ *      Pressing the (record) button will toggle the (record) indicator 
+ *      for one of five (disc) (video) (cd) (a.v.) (tuner) inputs 
+ *      and the (record) mode indicator.
+ * 
+ *      When in (record) mode pressing the (tape) input selector 
+ *      will toggle between the (tape) output and the (tape) input 
+ *      as the source for the amplifier.
+ * 
+ *  Notes:
+ * 
+ *      As of 2021-JULY-3 there is no decider implementation for 
+ *      any infrared (IR) remote control transmitter.
+ * 
+ *      When a suitable IR transmitter has been selected and 
+ *      the transmit codes are assigned to amplifier functions 
+ *      the (mute), (volume) up and (volume) down functions 
+ *      will be assigned to individual buttons. At this point 
+ *      the volume motor drive logic can me implemented.
+ * 
+ *      The volume motor drive circuit is vulnerable to damage 
+ *      when the (VOL+) and (VOL-) drive signals are high 
+ *      at the same time. Any implementation must avoid 
+ *      this condition.
+ * 
+ *      There may be enough buttons on the IR transmitter to 
+ *      implement a less complex method to select between the
+ *      the tape output and audio source when in (record) mode.
  */
 
 #pragma config FOSC = XT        // Oscillator Selection bits (XT oscillator)
@@ -193,27 +236,27 @@ void main(void)
         {
             switch (SW_Stable)
             {
-                case SW_1:
+                case SW_1:      /* disc */
                     if(PORTB & (1<<0)) LED_MUTEn_TOGGLE();
                     PORTB &= (1<<0)|(1<<6);
                     PORTB |= (1<<0);
                     break;
-                case SW_2:
+                case SW_2:      /* video */
                     if(PORTB & (1<<1)) LED_MUTEn_TOGGLE();
                     PORTB &= (1<<1)|(1<<6);
                     PORTB |= (1<<1);
                     break;
-                case SW_3:
+                case SW_3:      /* cd */
                     if(PORTB & (1<<2)) LED_MUTEn_TOGGLE();
                     PORTB &= (1<<2)|(1<<6);
                     PORTB |= (1<<2);
                     break;
-                case SW_4:
+                case SW_4:      /* a.v. */
                     if(PORTB & (1<<3)) LED_MUTEn_TOGGLE();
                     PORTB &= (1<<3)|(1<<6);
                     PORTB |= (1<<3);
                     break;
-                case SW_5:
+                case SW_5:      /* tuner */
                     if(PORTB & (1<<4)) LED_MUTEn_TOGGLE();
                     PORTB &= (1<<4)|(1<<6);
                     PORTB |= (1<<4);
