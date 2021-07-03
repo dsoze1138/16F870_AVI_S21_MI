@@ -261,10 +261,17 @@ void main(void)
                     PORTB &= (1<<4)|(1<<6);
                     PORTB |= (1<<4);
                     break;
-                case SW_6:
-                    if(PORTB & (1<<5)) LED_MUTEn_TOGGLE();
-                    PORTB &= (1<<5)|(1<<6);
-                    PORTB |= (1<<5);
+                case SW_6:      /* tape */
+                    if(PORTBbits.RB6) /* if the record mode is active toggle between tape output and recode source as the input */
+                    {
+                        PORTB = (PORTB ^ (1<<5)) ^ (PORTC & 0b00011111); 
+                    }
+                    else /* else treat the tape selection like the other inputs */
+                    {
+                        if(PORTB & (1<<5)) LED_MUTEn_TOGGLE();
+                        PORTB &= (1<<5)|(1<<6);
+                        PORTB |= (1<<5);
+                    }
                     break;
                 default:
                     break;
@@ -274,15 +281,15 @@ void main(void)
                 LED_REC_TOGGLE();
             }
             
-            if(PORTBbits.RB6)
+            if(PORTBbits.RB6) 
             {
                 PORTC ^= ((PORTC ^ PORTB) & 0b00011111);
             }
-            else
+            else if (0 == (PORTB & (1<<5)))
             {
                 PORTC &= 0b11100000;
             }
-
+            
             SW_Changed = 0;
         }
         /*
