@@ -282,20 +282,24 @@ void main(void)
             }
             
             /* 
-             * On any switch press if any button
-             * is press (SW1 to SW5 or SW_REC)
-             * and record mode is on then
-             * select that input as the tape recorder input.
-             * else if a input source that is not tape is
-             * selected then turn off record mode.
+             * On any switch press:
+             *  if the button pressed is (SW1 to SW5 or SW_REC) then 
+             *    if the record mode is on then
+             *      if the input selected is not (tape) then
+             *        select that input as the tape recorder input.
+             *    else
+             *      then turn off record mode.
              */
-            if ((SW_Stable < SW_6) || (SW_Stable == SW_REC))
+            if ((SW_Stable != SW_6) || (SW_Stable == SW_REC))
             {
-                if((PORTBbits.RB6) && ((PORTB & 0b00011111) != 0))
+                if(PORTBbits.RB6)
                 {
-                    PORTC ^= ((PORTC ^ PORTB) & 0b00011111);
+                    if ((PORTB & 0b00011111) != 0)
+                    {
+                        PORTC ^= ((PORTC ^ PORTB) & 0b00011111);
+                    }
                 }
-                else if ((PORTB & 0b00011111) != 0)
+                else 
                 {
                     PORTC &= 0b11100000;
                 }
