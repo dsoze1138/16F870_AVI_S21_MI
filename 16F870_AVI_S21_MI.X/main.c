@@ -59,10 +59,10 @@
  *      any infrared (IR) remote control transmitter.
  * 
  *      When a suitable IR transmitter has been selected and 
- *      the transmit codes are assigned to amplifier functions 
+ *      the transmitter codes assigned to amplifier functions 
  *      for input selection, (record) mode, (mute), (volume) up 
- *      and (volume) down functions buttons then the volume 
- *      motor drive logic can me implemented.
+ *      and (volume) down then the volume motor drive logic 
+ *      can me implemented.
  * 
  *      The volume motor drive circuit is vulnerable to damage 
  *      when the (VOL+) and (VOL-) drive signals are high 
