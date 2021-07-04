@@ -290,7 +290,7 @@ void main(void)
              *    else
              *      then turn off record mode.
              */
-            if ((SW_Stable != SW_6) || (SW_Stable == SW_REC))
+            if ((SW_Stable != SW_6) && (SW_Stable != SW_none))
             {
                 if(PORTBbits.RB6)
                 {
