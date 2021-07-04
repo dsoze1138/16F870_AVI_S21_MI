@@ -30,7 +30,7 @@
  *                  +-------------------------+
  *                            DIP-28 
  * 
- *  This is how the user interactions is implemented:
+ *  This is how the user interactions are implemented:
  * 
  *      There are seven normally open push buttons that are
  *      used to select one of six audio sources (disc) (video) 
