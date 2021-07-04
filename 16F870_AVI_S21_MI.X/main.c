@@ -62,7 +62,7 @@
  *      the transmitter codes assigned to amplifier functions 
  *      for input selection, (record) mode, (mute), (volume) up 
  *      and (volume) down then the volume motor drive logic 
- *      can me implemented.
+ *      can be implemented.
  * 
  *      The volume motor drive circuit is vulnerable to damage 
  *      when the (VOL+) and (VOL-) drive signals are high 
