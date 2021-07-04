@@ -39,7 +39,7 @@
  *      for the tape recorder.
  * 
  *      At power start all inputs sources are off and the (mute) 
- *      is enabled.Pressing a source select button, (disc) (video) 
+ *      is enabled. Pressing a source select button, (disc) (video) 
  *      (cd) (a.v.) (tuner) (tape) will select that source as the 
  *      amplifier input. Once an amplifier source is selected 
  *      another press of that source select button will toggle the 
@@ -50,19 +50,19 @@
  *      and the (record) mode indicator.
  * 
  *      When in (record) mode pressing the (tape) input selector 
- *      will toggle between the (tape) output and the (tape) input 
- *      as the source for the amplifier.
+ *      will toggle between the (tape) output and the source selected
+ *      for the tape recorder input as the source for the amplifier.
  * 
  *  Notes:
  * 
- *      As of 2021-JULY-3 there is no decider implementation for 
+ *      As of 2021-JULY-3 there is no decoder implementation for 
  *      any infrared (IR) remote control transmitter.
  * 
  *      When a suitable IR transmitter has been selected and 
  *      the transmit codes are assigned to amplifier functions 
- *      the (mute), (volume) up and (volume) down functions 
- *      will be assigned to individual buttons. At this point 
- *      the volume motor drive logic can me implemented.
+ *      for input selection, (record) mode, (mute), (volume) up 
+ *      and (volume) down functions buttons then the volume 
+ *      motor drive logic can me implemented.
  * 
  *      The volume motor drive circuit is vulnerable to damage 
  *      when the (VOL+) and (VOL-) drive signals are high 
