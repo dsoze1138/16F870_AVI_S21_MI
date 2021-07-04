@@ -281,15 +281,25 @@ void main(void)
                 LED_REC_TOGGLE();
             }
             
-            if(PORTBbits.RB6) 
+            /* 
+             * On any switch press if any button
+             * is press (SW1 to SW5 or SW_REC)
+             * and record mode is on then
+             * select that input as the tape recorder input.
+             * else if a input source that is not tape is
+             * selected then turn off record mode.
+             */
+            if ((SW_Stable < SW_6) || (SW_Stable == SW_REC))
             {
-                PORTC ^= ((PORTC ^ PORTB) & 0b00011111);
+                if((PORTBbits.RB6) && ((PORTB & 0b00011111) != 0))
+                {
+                    PORTC ^= ((PORTC ^ PORTB) & 0b00011111);
+                }
+                else if ((PORTB & 0b00011111) != 0)
+                {
+                    PORTC &= 0b11100000;
+                }
             }
-            else if (0 == (PORTB & (1<<5)))
-            {
-                PORTC &= 0b11100000;
-            }
-            
             SW_Changed = 0;
         }
         /*
