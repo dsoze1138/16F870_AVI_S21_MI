@@ -22,3 +22,7 @@ nbactions.xml
 nb-configuration.xml
 funclist
 disassembly/
+
+# KDIFF
+# =========================
+*.orig
