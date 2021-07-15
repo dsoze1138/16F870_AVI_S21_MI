@@ -1,0 +1,13 @@
+From web site: https://avihifi.com/legacy/poweramp.html
+
+"A good circuit can be ruined by bad layout (hence the differences in sounds between 
+so many CD players) but ours is neat and very elegant with extremely short signal 
+path routings. Switching is by reed relay and volume by motorised Alps, an arrangement 
+that has dramatic advantages over most solid-state alternatives."
+
+This statement would mean that an Apls 4-6VDC motorised potentiometers is used.
+
+The data sheets I have found for these devices specifies the range of movement as 300°
+and the rate of movement to be 12° per second with a 4.5 volt drive.
+
+https://tech.alpsalpine.com/prod/e/html/potentiometer/rotarypotentiometers/rmp_rk16/rk16812mg099.html
